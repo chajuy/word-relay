@@ -38,7 +38,7 @@
         e.preventDefault();
         $input.value = "";
         if(word.substr(-1) ===  newWord.substring(0,1)) {
-          if(newWord.length <= 1) {
+          if(newWord.length <= 1) { //한 글자 이하는 경고표시
             alert('1글자이상')
           }else {
             word = newWord;  
