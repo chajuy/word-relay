@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>끝말잇기</title>
+</head>
+<body>
+  <div>제시어 : <span id="word"> </span> </div>
+  <form action="">
+    <input type="text">
+    <input type="submit" value="입력!" id="button">
+  </form>
+  
+
+  
+  <script>
+    const $button = document.getElementById('button');
+    const $input = document.querySelector('input');
+    const $word = document.querySelector('#word');
+
+    let word; //제시어
+    let newWord;  //새로 입력한 단어
+
+    const onInput = (e) => {
+      newWord = e.target.value;
+  
+    };
+    const onButton = (e) => {
+      if(!word) { //제시어 없을떄
+        word = newWord;  
+        $word.textContent = word;
+        e.preventDefault();
+        $input.value = "";
+      } else { //제시어 있을 때
+        e.preventDefault();
+        $input.value = "";
+        if(word.substr(-1) ===  newWord.substring(0,1)) {
+          if(newWord.length <= 1) {
+            alert('1글자이상')
+          }else {
+            word = newWord;  
+          $word.textContent = word;
+          console.log(word.substr(-1));
+          console.log(newWord.substring(0,1));
+          };
+          
+        } else {
+          alert('다시시도');
+        }
+      }
+      
+    };
+
+    $input.addEventListener('input', onInput);    
+
+    button.addEventListener('click', onButton);
+  </script>
+  
+  
+     
+     
+  
+  
+</body>
+</html>
